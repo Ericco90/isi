@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yayasan Ikatan Spiritual Indonesia (ISI)</title>
+    
+    <!-- Fonts: Playfair Display (Serif/Premium) & Inter (Sans/Modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        pupus: {
+                            300: '#D4FF70', // Light pupus
+                            400: '#BEF264',
+                            500: '#ADFF2F', // Hijau Pupus (GreenYellow)
+                            600: '#84CC00', // Deep pupus
+                        },
+                        neon: {
+                            green: '#39FF14', // Neon Green
+                        },
+                        dark: {
+                            900: '#050505',
+                            800: '#0D0D0D',
+                            700: '#141414',
+                        }
+                    },
+                    boxShadow: {
+                        'pupus-glow': '0 0 20px rgba(173, 255, 47, 0.4)',
+                        'pupus-glow-lg': '0 0 40px rgba(173, 255, 47, 0.6)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Mystical Premium Feel */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Background - Responsive (Ganti URL Gambar Di Sini) */
+        .hero-bg {
+            /* Background Image untuk Mobile (Portrait) */
+            background-image: url('image/hero.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-bg {
+                /* Background Image untuk PC/Desktop (Landscape) */
+                background-image: url('image/isi.webp');
+            }
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(13, 13, 13, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(173, 255, 47, 0.15);
+        }
+
+        /* Hijau Pupus Gradient Text */
+        .text-gradient-pupus {
+            background: linear-gradient(to right, #D4FF70, #ADFF2F, #84CC00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hover Transitions */
+        .hover-pupus-border {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-pupus-border:hover {
+            border-color: rgba(173, 255, 47, 0.7);
+            box-shadow: 0 0 25px rgba(173, 255, 47, 0.25);
+            transform: translateY(-5px);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #84CC00; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ADFF2F; 
+        }
+
+        /* Particle Canvas Positioning */
+        #particle-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .relative-z {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Ambient Glow Blobs */
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.25;
+            pointer-events: none;
+            animation: pulse-blob 8s infinite alternate ease-in-out;
+        }
+        .glow-pupus { background: #ADFF2F; }
+
+        @keyframes pulse-blob {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.2) translate(20px, -20px); }
+        }
+        
+        /* Floating Animation */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Tree Connector Lines */
+        .tree-line-v {
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(173, 255, 47, 0.5), rgba(173, 255, 47, 0.1));
+            margin: 0 auto;
+        }
+        .tree-line-h {
+            height: 2px;
+            background: rgba(173, 255, 47, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-pupus-500 selection:text-black">
+
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="absolute inset-0 bg-dark-900/80 backdrop-blur-md border-b border-pupus-500/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative-z">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand -->
+                <div class="flex-shrink-0 cursor-pointer flex items-center gap-2" onclick="window.scrollTo(0,0)">
+                    <i class="fas fa-yin-yang text-pupus-500 text-2xl animate-spin" style="animation-duration: 10s;"></i>
+                    <span class="font-serif font-bold text-2xl tracking-wider text-gradient-pupus drop-shadow-md">YAYASAN ISI</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 lg:space-x-8">
+                        <a href="#tentang" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Tentang</a>
+                        <a href="#visimisi" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Visi Misi</a>
+                        <a href="#kepengurusan" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Kepengurusan</a>
+                        <a href="#galeri" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Galeri</a>
+                        <a href="#daftar" class="bg-gradient-to-r from-pupus-600 to-pupus-400 text-black px-6 py-2 rounded-full font-semibold hover:shadow-pupus-glow transition-all duration-300 transform hover:scale-105 shadow-lg">Daftar Anggota</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" id="mobile-menu-btn" class="text-pupus-400 hover:text-white focus:outline-none drop-shadow-md">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-dark-800 border-b border-pupus-500/20 absolute w-full" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#tentang" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Tentang</a>
+                <a href="#visimisi" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Visi Misi</a>
+                <a href="#kepengurusan" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Kepengurusan</a>
+                <a href="#galeri" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Galeri</a>
+                <a href="#daftar" class="text-pupus-400 block px-3 py-2 text-base font-medium">Daftar Anggota</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menambahkan class hero-bg dan menghapus bg-dark-900 agar gambar tampil -->
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden hero-bg">
+        
+        <!-- Canvas for spiritual particles -->
+        <canvas id="particle-canvas" class="z-[1]"></canvas>
+
+        <div class="relative-z max-w-5xl mx-auto px-4 text-center z-10">
+            
+            <!-- Logo Placeholder dihapus untuk membuat hero lebih bersih sesuai permintaan -->
+            
+            <!-- Teks Hero Dihapus -->
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-20 md:mt-40" data-aos="fade-up" data-aos-delay="200">
+                <a href="#daftar" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-pupus-500 to-pupus-600 text-black font-bold rounded-full shadow-pupus-glow hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2 drop-shadow-xl">
+                    <i class="fas fa-hand-sparkles"></i> Gabung Sekarang
+                </a>
+                <a href="#tentang" class="w-full sm:w-auto px-8 py-4 bg-black/60 backdrop-blur-sm border border-pupus-500 text-pupus-400 font-bold rounded-full hover:bg-pupus-500 hover:text-black transition-colors duration-300 flex items-center justify-center gap-2 drop-shadow-xl">
+                    Pelajari Lebih Lanjut
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang" class="py-24 relative bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Left: Typography & Copy -->
+                <div data-aos="fade-right">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-[2px] w-12 bg-pupus-500"></div>
+                        <span class="text-pupus-400 font-semibold tracking-wider uppercase text-sm">Tentang Organisasi</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-8 text-white">Apa Itu <span class="text-gradient-pupus">ISI?</span></h2>
+                    
+                    <div class="space-y-6 text-gray-300 text-lg leading-relaxed font-light">
+                        <p>
+                            <strong class="text-pupus-400 font-medium">Ikatan Spiritual Indonesia (ISI)</strong> adalah wadah resmi yang merangkul seluruh pelaku spiritual, paranormal, terapis, praktisi energi, dan penyehat tradisional dari seluruh pelosok Nusantara hingga mancanegara.
+                        </p>
+                        <p>
+                            Kami hadir sebagai jembatan persatuan, legalitas, pengembangan, dan kebersamaan bagi seluruh anggota spiritual Indonesia untuk maju dan sukses bersama dalam koridor hukum dan persaudaraan.
+                        </p>
+                    </div>
+
+                    <div class="mt-10 flex gap-4">
+                        <div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-pupus-400 text-2xl border-pupus-500/30">
+                            <i class="fas fa-hand-holding-droplet"></i>
+                        </div>
+                        <div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-pupus-400 text-2xl border-pupus-500/30 shadow-pupus-glow">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Cards (Visi Misi inside About Section layout) -->
+                <div id="visimisi" class="space-y-6 relative" data-aos="fade-left">
+                    <div class="glow-blob glow-pupus w-64 h-64 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    
+                    <!-- Visi Card -->
+                    <div class="glass-card p-8 rounded-2xl relative-z hover-pupus-border group">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-pupus-500/10 rounded-lg group-hover:bg-pupus-500/20 transition-colors">
+                                <i class="fas fa-eye text-2xl text-pupus-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-serif font-bold text-white mb-3">VISI</h3>
+                                <p class="text-gray-300 italic font-serif">"Menjadi organisasi spiritual terbesar, terpercaya, dan legal di Indonesia."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Misi Card -->
+                    <div class="glass-card p-8 rounded-2xl relative-z hover-pupus-border group mt-6">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-pupus-500/10 rounded-lg group-hover:bg-pupus-500/20 transition-colors">
+                                <i class="fas fa-meteor text-2xl text-pupus-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-serif font-bold text-white mb-4">MISI</h3>
+                                <ul class="space-y-3 text-gray-300">
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-sparkles text-pupus-500 text-sm"></i>
+                                        <span>Menyatukan seluruh pelaku spiritual Indonesia</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-sparkles text-pupus-500 text-sm"></i>
+                                        <span>Membantu legalitas dan pengembangan anggota</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-sparkles text-pupus-500 text-sm"></i>
+                                        <span>Menjalin persaudaraan dan solidaritas</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <i class="fas fa-sparkles text-pupus-500 text-sm"></i>
+                                        <span>Menjadi wadah edukasi spiritual modern</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kepengurusan" class="py-24 relative bg-dark-900 border-t border-pupus-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Struktur <span class="text-gradient-pupus">Kepengurusan</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Silsilah koordinasi dan kepemimpinan Yayasan Ikatan Spiritual Indonesia.</p>
+            </div>
+
+            <!-- Tree Structure -->
+            <div class="relative flex flex-col items-center mt-12 overflow-x-auto pb-8" data-aos="fade-up" data-aos-delay="200">
+                
+                <!-- Level 1 -->
+                <div class="glass-card p-6 rounded-2xl w-64 text-center hover-pupus-border border-t-4 border-t-pupus-500 relative-z flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900">
+                        <img src="https://images.unsplash.com/photo-1555952517-2e8e729e0b44?auto=format&fit=crop&q=80&w=200&h=200" alt="Dewan Pembina" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Ki Ageng Pemanahan</h3>
+                    <p class="text-sm text-pupus-400 font-medium mt-1">Dewan Pembina</p>
+                    <p class="text-xs text-gray-400 mt-2">Sesepuh & Pendiri Nusantara</p>
+                </div>
+
+                <!-- Connector -->
+                <div class="tree-line-v h-10"></div>
+
+                <!-- Level 2 -->
+                <div class="glass-card p-6 rounded-2xl w-64 text-center hover-pupus-border border-t-4 border-t-pupus-600 relative-z flex flex-col items-center">
+                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900">
+                        <img src="image/ki.jpg" alt="Ketua Umum" class="w-full h-full rounded-full object-cover">
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Ki Paku Bumi</h3>
+                    <p class="text-sm text-pupus-400 font-medium mt-1">Ketua Umum</p>
+                    <p class="text-xs text-gray-400 mt-2">Pimpinan Pusat Yayasan</p>
+                </div>
+
+                <!-- Connector & Split -->
+                <div class="tree-line-v h-8"></div>
+                <div class="tree-line-h w-64 md:w-96"></div>
+                <div class="flex justify-between w-64 md:w-96">
+                    <div class="tree-line-v h-8 mx-0"></div>
+                    <div class="tree-line-v h-8 mx-0"></div>
+                </div>
+
+                <!-- Level 3 -->
+                <div class="flex gap-16 md:gap-40 w-full max-w-lg justify-center relative-z">
+                    <div class="glass-card p-5 rounded-2xl w-48 md:w-56 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200" alt="Sekretaris Jenderal" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-base">Bpk. Raditya</h3>
+                        <p class="text-xs text-pupus-400 mt-1">Sekretaris Jenderal</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-2xl w-48 md:w-56 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" alt="Bendahara Umum" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-base">Ibu Dewi Saraswati</h3>
+                        <p class="text-xs text-pupus-400 mt-1">Bendahara Umum</p>
+                    </div>
+                </div>
+
+                <!-- Connector to Level 4 -->
+                <div class="flex justify-center w-full mt-[-2px]">
+                     <div class="tree-line-v h-16 opacity-50"></div>
+                </div>
+
+                <!-- Level 4 -->
+                <div class="glass-card p-6 rounded-2xl w-full max-w-2xl text-center hover-pupus-border relative-z bg-dark-800/90 border-pupus-500/30 border-dashed border-2 flex flex-col items-center">
+                    <div class="flex -space-x-4 mb-4">
+                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
+                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
+                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
+                        <div class="w-14 h-14 rounded-full border-2 border-dark-900 bg-gradient-to-br from-pupus-500 to-pupus-600 flex items-center justify-center text-black font-bold text-sm z-10">+99</div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">Jajaran Koordinator Wilayah & Divisi</h3>
+                    <p class="text-sm text-gray-400 mt-2">DPC, DPD, Praktisi Spesifik, dan Perwakilan Luar Negeri</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="keunggulan" class="py-24 relative bg-dark-800 border-t border-pupus-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Keunggulan <span class="text-gradient-pupus">Bergabung</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Keistimewaan yang Anda dapatkan sebagai bagian dari keluarga besar Ikatan Spiritual Indonesia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-shield-halved text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Legalitas Resmi</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Berlindung di bawah naungan payung hukum yang sah dan diakui secara nasional.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-users-rays text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Komunitas Nusantara</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Terhubung dengan ribuan praktisi dari berbagai daerah dengan keragaman tradisi.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-circle-nodes text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Networking Erat</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Membangun relasi saling mendukung, berbagi ilmu, dan sinergi antar sesama praktisi.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-book-journal-whills text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Pengembangan Ilmu</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Akses ke pelatihan, seminar, dan sertifikasi untuk meningkatkan kapasitas keilmuan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri" class="py-24 relative bg-dark-900 border-t border-pupus-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Galeri <span class="text-gradient-pupus">Kegiatan</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Dokumentasi kebersamaan, gathering, pengobatan tradisional, dan acara komunitas ISI. Klik foto untuk memperbesar.</p>
+            </div>
+
+            <!-- Aligned Grid Layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item -->
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" onclick="openLightbox(this.querySelector('img').src, 'Meditasi Bersama')">
+                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Kegiatan Spiritual" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Meditasi Bersama</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(this.querySelector('img').src, 'Pengobatan Tradisional')">
+                    <img src="https://images.unsplash.com/photo-1518115598692-7489da1f46cd?auto=format&fit=crop&q=80&w=800" alt="Gathering Nusantara" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Pengobatan Tradisional</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(this.querySelector('img').src, 'Pelestarian Budaya')">
+                    <img src="https://images.unsplash.com/photo-1610423169727-46383617be33?auto=format&fit=crop&q=80&w=800" alt="Budaya Nusantara" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Pelestarian Budaya</span>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" onclick="openLightbox(this.querySelector('img').src, 'Sarasehan Keilmuan')">
+                    <img src="https://images.unsplash.com/photo-1593353457176-ff63d76e73c8?auto=format&fit=crop&q=80&w=800" alt="Sarasehan" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Sarasehan Keilmuan</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" data-aos-delay="100" onclick="openLightbox(this.querySelector('img').src, 'Doa Bersama Lintas Keyakinan')">
+                    <img src="https://images.unsplash.com/photo-1519834785169-98be25ce3f27?auto=format&fit=crop&q=80&w=800" alt="Ritual" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Doa Bersama Lintas Keyakinan</span>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
+                     data-aos="fade-up" data-aos-delay="200" onclick="openLightbox(this.querySelector('img').src, 'Edukasi & Sertifikasi')">
+                    <img src="https://images.unsplash.com/photo-1559596328-98e6c5188fba?auto=format&fit=crop&q=80&w=800" alt="Edukasi" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Edukasi & Sertifikasi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 relative bg-dark-800 overflow-hidden border-t border-pupus-500/10">
+        <!-- Decoration -->
+        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 opacity-5">
+            <i class="fas fa-quote-left text-[20rem] text-pupus-500"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative-z">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Suara <span class="text-gradient-pupus">Anggota</span></h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-10 md:p-14 rounded-3xl text-center relative hover-pupus-border" data-aos="zoom-in">
+                    <i class="fas fa-quote-right text-4xl text-pupus-500/50 absolute top-8 right-8"></i>
+                    
+                    <p class="text-xl md:text-3xl font-serif italic text-gray-200 leading-relaxed mb-8">
+                        "Bergabung dengan ISI membuat saya memiliki keluarga spiritual yang solid dan legal. Legalitas jelas, perlindungan terjamin, dan persaudaraan tanpa batas."
+                    </p>
+                    
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pupus-500 to-dark-800 p-[2px]">
+                            <img src="https://ui-avatars.com/api/?name=Ki+Ageng&background=0D0D0D&color=ADFF2F&bold=true" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <div class="text-left">
+                            <h4 class="text-white font-bold text-lg">Anggota ISI</h4>
+                            <p class="text-pupus-400 text-sm">Koordinator Jawa Tengah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="daftar" class="py-24 relative bg-dark-900 border-t border-pupus-500/20">
+        <div class="glow-blob glow-pupus w-96 h-96 bottom-0 left-0 opacity-10"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative-z">
+            <div class="glass-card rounded-3xl overflow-hidden shadow-2xl">
+                <div class="grid md:grid-cols-5 h-full">
+                    
+                    <!-- Left Sidebar of Form -->
+                    <div class="md:col-span-2 bg-gradient-to-br from-dark-900 to-black p-10 flex flex-col justify-center relative border-r border-pupus-500/20">
+                        <div class="absolute top-0 right-0 p-6 opacity-10">
+                            <i class="fas fa-om text-6xl text-pupus-500"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">Daftarkan <span class="text-gradient-pupus">Diri Anda</span></h2>
+                        <p class="text-gray-400 mb-8 text-sm md:text-base leading-relaxed">
+                            Lengkapi data diri Anda untuk menjadi bagian dari keluarga besar Yayasan Ikatan Spiritual Indonesia (ISI). Data akan dikirim langsung ke WhatsApp Admin Resmi.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 text-gray-300">
+                                <i class="fab fa-whatsapp text-pupus-500 text-xl"></i>
+                                <span class="text-sm">Admin Pusat Fast Response</span>
+                            </div>
+                            <div class="flex items-center gap-4 text-gray-300">
+                                <i class="fas fa-shield-halved text-pupus-400 text-xl"></i>
+                                <span class="text-sm">Data Dijamin Aman & Rahasia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Form Area -->
+                    <div class="md:col-span-3 p-10 bg-dark-800/80">
+                        <form id="registrationForm" class="space-y-6">
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Nama Lengkap</label>
+                                    <input type="text" id="regNama" required class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors" placeholder="Masukkan nama lengkap">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Nomor WhatsApp</label>
+                                    <input type="tel" id="regWA" required class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors" placeholder="08xxxxxxxxxx">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Nama Padepokan / Komunitas (Jika Ada)</label>
+                                <input type="text" id="regPadepokan" class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors" placeholder="Nama padepokan Anda">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Bidang Spiritual</label>
+                                <select id="regBidang" class="w-full bg-dark-900 border-b border-gray-600 px-2 py-2 text-gray-300 focus:outline-none focus:border-pupus-500 transition-colors appearance-none">
+                                    <option value="" disabled selected>Pilih Bidang Spiritual Utama</option>
+                                    <option value="Supranatural / Paranormal">Supranatural / Paranormal</option>
+                                    <option value="Pengobatan Tradisional / Terapis">Pengobatan Tradisional / Terapis</option>
+                                    <option value="Praktisi Energi / Prana / Reiki">Praktisi Energi / Prana / Reiki</option>
+                                    <option value="Benda Bertuah / Pusaka">Ahli Benda Bertuah / Pusaka</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Kota / Provinsi</label>
+                                    <input type="text" id="regKota" required class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors" placeholder="Contoh: Semarang, Jawa Tengah">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Alamat Lengkap</label>
+                                    <input type="text" id="regAlamat" required class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors" placeholder="Alamat domisili">
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-xs text-pupus-400 font-semibold tracking-wider uppercase">Pesan Tambahan (Opsional)</label>
+                                <textarea id="regPesan" rows="2" class="w-full bg-transparent border-b border-gray-600 px-0 py-2 text-white focus:outline-none focus:border-pupus-500 transition-colors resize-none" placeholder="Alasan bergabung / motivasi"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-pupus-600 to-pupus-400 text-black font-bold py-4 rounded-xl shadow-pupus-glow hover:scale-[1.02] transition-all mt-4 flex justify-center items-center gap-2">
+                                <i class="fab fa-whatsapp text-xl"></i> Kirim Pendaftaran via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black pt-16 pb-8 border-t border-pupus-500/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative-z">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fas fa-yin-yang text-pupus-500 text-2xl"></i>
+                        <span class="font-serif font-bold text-2xl tracking-wider text-gradient-pupus">YAYASAN ISI</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        YAYASAN IKATAN SPIRITUAL INDONESIA<br>
+                        "Bersatu Dalam Spiritualitas, Berkembang Dalam Kebersamaan."
+                    </p>
+                    <div class="inline-block border border-pupus-500/30 rounded-lg px-3 py-1 bg-dark-900">
+                        <p class="text-xs text-gray-500 font-mono">AHU-0006649.AH.01.04.TAHUN 2024</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-serif">Tautan Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#tentang" class="text-gray-400 hover:text-pupus-400 transition-colors text-sm">Tentang ISI</a></li>
+                        <li><a href="#visimisi" class="text-gray-400 hover:text-pupus-400 transition-colors text-sm">Visi & Misi</a></li>
+                        <li><a href="#kepengurusan" class="text-gray-400 hover:text-pupus-400 transition-colors text-sm">Struktur Kepengurusan</a></li>
+                        <li><a href="#galeri" class="text-gray-400 hover:text-pupus-400 transition-colors text-sm">Galeri Kegiatan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-6 font-serif">Hubungi Kami</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-black hover:bg-pupus-500 transition-all border border-gray-700 hover:border-transparent">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all border border-gray-700 hover:border-transparent">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-black transition-all border border-gray-700 hover:border-transparent">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all border border-gray-700 hover:border-transparent">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm"><i class="fas fa-envelope mr-2 text-pupus-500"></i> info@ikatanspiritual.id</p>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Yayasan Ikatan Spiritual Indonesia (ISI). All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Desain Resmi Nasional</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex-col items-center justify-center p-4 transition-opacity duration-300">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white hover:text-pupus-500 text-4xl focus:outline-none transition-colors">
+            &times;
+        </button>
+        <div class="relative max-w-5xl w-full max-h-[85vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Zoomed Gallery Image" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-pupus-glow-lg border border-pupus-500/30">
+            <p id="lightbox-caption" class="text-pupus-400 font-serif text-xl mt-6 tracking-wide drop-shadow-md text-center"></p>
+        </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // 1. Initialize AOS Animation
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // 2. Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        
+        // Close menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Navbar blur on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // 3. Lightbox Functionality
+        const lightbox = document.getElementById('gallery-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.innerText = caption;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+
+        // Close lightbox on clicking outside image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape" && !lightbox.classList.contains('hidden')) {
+                closeLightbox();
+            }
+        });
+
+        // 4. Form to WhatsApp Integration
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect Data
+            const nama = document.getElementById('regNama').value;
+            const wa = document.getElementById('regWA').value;
+            const padepokan = document.getElementById('regPadepokan').value || '-';
+            const bidang = document.getElementById('regBidang').value;
+            const kota = document.getElementById('regKota').value;
+            const alamat = document.getElementById('regAlamat').value;
+            const pesan = document.getElementById('regPesan').value || '-';
+
+            // Target Admin WA Number
+            const adminWA = "6281234567890"; // GANTI DENGAN NOMOR ADMIN
+
+            // Format Message
+            let waText = `*FORMULIR PENDAFTARAN ANGGOTA ISI*%0A%0A`;
+            waText += `*Nama Lengkap:* ${nama}%0A`;
+            waText += `*No. WhatsApp:* ${wa}%0A`;
+            waText += `*Nama Padepokan:* ${padepokan}%0A`;
+            waText += `*Bidang Spiritual:* ${bidang}%0A`;
+            waText += `*Kota/Provinsi:* ${kota}%0A`;
+            waText += `*Alamat Lengkap:* ${alamat}%0A`;
+            waText += `*Pesan Tambahan:* ${pesan}%0A%0A`;
+            waText += `Mohon info selanjutnya terkait administrasi dan pendaftaran resmi. Terima kasih.`;
+
+            // Open WhatsApp Tab
+            const waURL = `https://wa.me/${adminWA}?text=${waText}`;
+            window.open(waURL, '_blank');
+        });
+
+        // 5. Spiritual Canvas Particles Animation
+        window.onload = function() {
+            const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let particlesArray = [];
+            
+            // Resize canvas
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = document.getElementById('beranda').offsetHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            // Particle Class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5; // very small dots
+                    this.speedX = Math.random() * 1 - 0.5; // drift slowly
+                    this.speedY = Math.random() * -1 - 0.5; // drift upwards mainly
+                    
+                    // Randomize opacity for pupus color
+                    this.color = 'rgba(173, 255, 47, ' + (Math.random() * 0.6) + ')';
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    // Reset to bottom if goes out of bounds
+                    if (this.y < 0 || this.x < 0 || this.x > canvas.width) {
+                        this.y = canvas.height;
+                        this.x = Math.random() * canvas.width;
+                    }
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Add glow to slightly larger particles
+                    if(this.size > 1.5) {
+                        ctx.shadowBlur = 10;
+                        ctx.shadowColor = this.color;
+                    } else {
+                        ctx.shadowBlur = 0;
+                    }
+                }
+            }
+
+            // Init particles
+            function initParticles() {
+                particlesArray = [];
+                const numberOfParticles = Math.min(window.innerWidth / 15, 100); 
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+
+            // Animate loop
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+
+            initParticles();
+            animateParticles();
+        };
+    </script>
+</body>
+</html>
