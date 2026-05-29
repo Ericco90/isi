@@ -1,0 +1,23 @@
+{
+  "name": "Ikatan Spiritual Indonesia",
+  "short_name": "ISI",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#ADFF2F",
+  "description": "Yayasan Ikatan Spiritual Indonesia - Wadah resmi pelaku spiritual Nusantara.",
+  "icons": [
+    {
+      "src": "image/logoisi.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "image/logoisi.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

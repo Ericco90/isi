@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yayasan Ikatan Spiritual Indonesia (ISI)</title>
     
+    <!-- PWA Manifest & App Icons -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#050505">
+    <link rel="apple-touch-icon" href="image/logoisi.jpg">
+
     <!-- Fonts: Playfair Display (Serif/Premium) & Inter (Sans/Modern) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -188,7 +193,7 @@
 
     <!-- Text -->
     <span class="font-serif font-bold text-2xl tracking-wider text-gradient-pupus drop-shadow-md">
-        YAYASAN ISI
+        IKATAN SPRITUAL INDONESIA
     </span>
 
 </div>                
@@ -200,6 +205,7 @@
                         <a href="#kepengurusan" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Kepengurusan</a>
                         <a href="#galeri" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Galeri</a>
                         <a href="#faq" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">FAQ</a>
+                        <a href="https://dataadministrasiisi.studiojasadigital.web.id/" target="_blank" class="text-gray-200 hover:text-pupus-400 transition-colors px-2 py-2 text-sm font-medium drop-shadow-md">Data Iuran</a>
                         <a href="https://wa.me/6285150941574" target="_blank" class="bg-gradient-to-r from-pupus-600 to-pupus-400 text-black px-6 py-2 rounded-full font-semibold hover:shadow-pupus-glow transition-all duration-300 transform hover:scale-105 shadow-lg">Daftar Anggota</a>
                     </div>
                 </div>
@@ -221,6 +227,7 @@
                 <a href="#kepengurusan" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Kepengurusan</a>
                 <a href="#galeri" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Galeri</a>
                 <a href="#faq" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">FAQ</a>
+                <a href="https://dataadministrasiisi.studiojasadigital.web.id/" target="_blank" class="text-gray-300 hover:text-pupus-400 block px-3 py-2 text-base font-medium">Data Iuran</a>
                 <a href="https://wa.me/6285150941574" target="_blank" class="text-pupus-400 block px-3 py-2 text-base font-medium">Daftar Anggota</a>
             </div>
         </div>
@@ -273,10 +280,10 @@
 
                     <div class="mt-10 flex gap-4">
                         <div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-pupus-400 text-2xl border-pupus-500/30">
-                            <i class="fas fa-hand-holding-droplet"></i>
+                            <i class="fa-solid fa-droplet"></i>
                         </div>
                         <div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-pupus-400 text-2xl border-pupus-500/30 shadow-pupus-glow">
-                            <i class="fas fa-leaf"></i>
+                            <i class="fa-solid fa-seedling"></i>
                         </div>
                     </div>
                 </div>
@@ -345,7 +352,7 @@
                 
                 <!-- Level 1 -->
                 <div class="glass-card p-6 rounded-2xl w-64 text-center hover-pupus-border border-t-4 border-t-pupus-500 relative-z flex flex-col items-center">
-                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900">
+                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('image/ki.jpg', 'Ki Paku Bumi - Dewan Pembina (Sesepuh & Pendiri Nusantara)')">
                         <img src="image/ki.jpg" alt="Dewan Pembina" class="w-full h-full rounded-full object-cover">
                     </div>
                     <h3 class="font-bold text-white text-lg">Ki Paku Bumi</h3>
@@ -358,7 +365,7 @@
 
                 <!-- Level 2 -->
                 <div class="glass-card p-6 rounded-2xl w-64 text-center hover-pupus-border border-t-4 border-t-pupus-600 relative-z flex flex-col items-center">
-                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900">
+                    <div class="w-24 h-24 rounded-full border-2 border-pupus-500/50 p-1 mb-4 shadow-[0_0_15px_rgba(173,255,47,0.3)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('image/ki.jpg', 'Ki Paku Bumi - Ketua Umum (Pimpinan Pusat Yayasan)')">
                         <img src="image/ki.jpg" alt="Ketua Umum" class="w-full h-full rounded-full object-cover">
                     </div>
                     <h3 class="font-bold text-white text-lg">Ki Paku Bumi</h3>
@@ -377,14 +384,14 @@
                 <!-- Level 3 -->
                 <div class="flex gap-16 md:gap-40 w-full max-w-lg justify-center relative-z">
                     <div class="glass-card p-5 rounded-2xl w-48 md:w-56 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
-                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900">
+                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('image/rido.webp', 'Thabib Rhido - Sekretaris Jenderal')">
                             <img src="image/rido.webp" alt="Sekretaris Jenderal" class="w-full h-full rounded-full object-cover">
                         </div>
                         <h3 class="font-bold text-white text-base">Thabib Rhido</h3>
                         <p class="text-xs text-pupus-400 mt-1">Sekretaris Jenderal</p>
                     </div>
                     <div class="glass-card p-5 rounded-2xl w-48 md:w-56 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
-                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900">
+                        <div class="w-20 h-20 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('image/panca.webp', 'Ki Panca Lodra - Bendahara Umum')">
                             <img src="image/panca.webp" alt="Bendahara Umum" class="w-full h-full rounded-full object-cover">
                         </div>
                         <h3 class="font-bold text-white text-base">Ki Panca Lodra</h3>
@@ -397,16 +404,103 @@
                      <div class="tree-line-v h-16 opacity-50"></div>
                 </div>
 
-                <!-- Level 4 -->
-                <div class="glass-card p-6 rounded-2xl w-full max-w-2xl text-center hover-pupus-border relative-z bg-dark-800/90 border-pupus-500/30 border-dashed border-2 flex flex-col items-center">
-                    <div class="flex -space-x-4 mb-4">
-                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
-                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
-                        <img class="w-14 h-14 rounded-full border-2 border-dark-900 object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Koordinator">
-                        <div class="w-14 h-14 rounded-full border-2 border-dark-900 bg-gradient-to-br from-pupus-500 to-pupus-600 flex items-center justify-center text-black font-bold text-sm z-10">+99</div>
+                <div class="tree-line-h w-[280px] md:w-[600px]"></div>
+                <div class="flex justify-between w-[280px] md:w-[600px]">
+                    <div class="tree-line-v h-8 mx-0"></div>
+                    <div class="tree-line-v h-8 mx-0"></div>
+                    <div class="tree-line-v h-8 mx-0"></div>
+                </div>
+
+                <!-- Level 4 (Anggota / Koordinator) -->
+                <div class="flex gap-4 md:gap-8 w-full max-w-4xl justify-center relative-z flex-wrap">
+                    <!-- Anggota 1 -->
+                    <div class="glass-card p-4 rounded-2xl w-36 md:w-48 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400&h=400', 'Nama Anggota 1 - Divisi / Posisi')">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Anggota 1" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-sm md:text-base">Nama Anggota</h3>
+                        <p class="text-[10px] md:text-xs text-pupus-400 mt-1">Jabatan / Divisi</p>
                     </div>
-                    <h3 class="font-bold text-white text-lg">Jajaran Koordinator Wilayah & Divisi</h3>
-                    <p class="text-sm text-gray-400 mt-2">DPC, DPD, Praktisi Spesifik, dan Perwakilan Luar Negeri</p>
+
+                    <!-- Anggota 2 -->
+                    <div class="glass-card p-4 rounded-2xl w-36 md:w-48 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400', 'Nama Anggota 2 - Divisi / Posisi')">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100&h=100" alt="Anggota 2" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-sm md:text-base">Nama Anggota</h3>
+                        <p class="text-[10px] md:text-xs text-pupus-400 mt-1">Jabatan / Divisi</p>
+                    </div>
+
+                    <!-- Anggota 3 -->
+                    <div class="glass-card p-4 rounded-2xl w-36 md:w-48 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-16 h-16 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&h=400', 'Nama Anggota 3 - Divisi / Posisi')">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Anggota 3" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-sm md:text-base">Nama Anggota</h3>
+                        <p class="text-[10px] md:text-xs text-pupus-400 mt-1">Jabatan / Divisi</p>
+                    </div>
+                </div>
+
+                <!-- Connector to Divisi -->
+                <div class="flex justify-center w-full mt-2">
+                     <div class="tree-line-v h-12 opacity-50"></div>
+                </div>
+                
+                <!-- Level 5 (6 Divisi) -->
+                <div class="flex gap-4 md:gap-6 w-full max-w-6xl justify-center relative-z flex-wrap mt-4">
+                    <!-- Divisi 1 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 1 - Divisi Satu')">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 1" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 1</p>
+                    </div>
+
+                    <!-- Divisi 2 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 2 - Divisi Dua')">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 2" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 2</p>
+                    </div>
+
+                    <!-- Divisi 3 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 3 - Divisi Tiga')">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 3" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 3</p>
+                    </div>
+
+                    <!-- Divisi 4 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 4 - Divisi Empat')">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 4" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 4</p>
+                    </div>
+
+                    <!-- Divisi 5 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 5 - Divisi Lima')">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 5" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 5</p>
+                    </div>
+
+                    <!-- Divisi 6 -->
+                    <div class="glass-card p-4 rounded-2xl w-32 md:w-40 text-center hover-pupus-border border-t-2 border-t-pupus-500/50 flex flex-col items-center">
+                        <div class="w-14 h-14 rounded-full border border-pupus-500/50 p-1 mb-3 shadow-[0_0_10px_rgba(173,255,47,0.2)] bg-dark-900 cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openLightbox('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400&h=400', 'Ketua Divisi 6 - Divisi Enam')">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100&h=100" alt="Divisi 6" class="w-full h-full rounded-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-white text-xs md:text-sm">Ketua Divisi</h3>
+                        <p class="text-[10px] text-pupus-400 mt-1">Divisi 6</p>
+                    </div>
                 </div>
 
             </div>
@@ -424,7 +518,7 @@
                 <!-- Card 1 -->
                 <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-shield-halved text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                        <i class="fa-solid fa-certificate text-3xl text-pupus-400 shadow-pupus-glow"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Legalitas Resmi</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">Berlindung di bawah naungan payung hukum yang sah dan diakui secara nasional.</p>
@@ -433,7 +527,7 @@
                 <!-- Card 2 -->
                 <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-users-rays text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                        <i class="fa-solid fa-people-group text-3xl text-pupus-400 shadow-pupus-glow"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Komunitas Nusantara</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">Terhubung dengan ribuan praktisi dari berbagai daerah dengan keragaman tradisi.</p>
@@ -442,7 +536,7 @@
                 <!-- Card 3 -->
                 <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-circle-nodes text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                        <i class="fa-solid fa-handshake-angle text-3xl text-pupus-400 shadow-pupus-glow"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Networking Erat</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">Membangun relasi saling mendukung, berbagi ilmu, dan sinergi antar sesama praktisi.</p>
@@ -451,7 +545,7 @@
                 <!-- Card 4 -->
                 <div class="glass-card p-8 rounded-2xl hover-pupus-border group text-center" data-aos="fade-up" data-aos-delay="400">
                     <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pupus-500/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-book-journal-whills text-3xl text-pupus-400 shadow-pupus-glow"></i>
+                        <i class="fa-solid fa-graduation-cap text-3xl text-pupus-400 shadow-pupus-glow"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Pengembangan Ilmu</h3>
                     <p class="text-sm text-gray-400 leading-relaxed">Akses ke pelatihan, seminar, dan sertifikasi untuk meningkatkan kapasitas keilmuan.</p>
@@ -504,13 +598,13 @@
                 </div>
 
                 <div class="relative group overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-pupus-glow transition-all duration-300" 
-                     data-aos="fade-up" onclick="openLightbox(this.querySelector('img').src, 'Pertemuan Dalam Rangka hari jadi ISI yang Ke 2')">
-                    <img src="image/11.webp" alt="Sarasehan" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
+                     data-aos="fade-up" onclick="openLightbox(this.querySelector('img').src, 'Sarasehan Keilmuan')">
+                    <img src="https://images.unsplash.com/photo-1593353457176-ff63d76e73c8?auto=format&fit=crop&q=80&w=800" alt="Sarasehan" class="w-full aspect-[4/3] object-cover transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <i class="fas fa-search-plus text-3xl text-pupus-400 drop-shadow-md"></i>
                     </div>
                     <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent pointer-events-none">
-                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Acara hari jadi ISI yang ke 2</span>
+                        <span class="text-pupus-400 font-semibold tracking-wider text-sm drop-shadow-md">Sarasehan Keilmuan</span>
                     </div>
                 </div>
                 
@@ -550,21 +644,107 @@
                 <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Suara <span class="text-gradient-pupus">Anggota</span></h2>
             </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="glass-card p-10 md:p-14 rounded-3xl text-center relative hover-pupus-border" data-aos="zoom-in">
-                    <i class="fas fa-quote-right text-4xl text-pupus-500/50 absolute top-8 right-8"></i>
-                    
-                    <p class="text-xl md:text-3xl font-serif italic text-gray-200 leading-relaxed mb-8">
-                        "Bergabung dengan ISI membuat saya memiliki keluarga spiritual yang solid dan legal. Legalitas jelas, perlindungan terjamin, dan persaudaraan tanpa batas."
-                    </p>
-                    
-                    <div class="flex items-center justify-center gap-4">
-                        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pupus-500 to-dark-800 p-[2px]">
-                            <img src="https://ui-avatars.com/api/?name=Ki+Ageng&background=0D0D0D&color=ADFF2F&bold=true" alt="Avatar" class="w-full h-full rounded-full object-cover">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Testi 1 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Bergabung dengan ISI membuat saya memiliki keluarga spiritual yang solid dan legal. Legalitas jelas, perlindungan terjamin."
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Ki Ageng</h4>
+                                <p class="text-pupus-400 text-xs">Koordinator Jateng</p>
+                            </div>
                         </div>
-                        <div class="text-left">
-                            <h4 class="text-white font-bold text-lg">Anggota ISI</h4>
-                            <p class="text-pupus-400 text-sm">Koordinator Jawa Tengah</p>
+                    </div>
+
+                    <!-- Testi 2 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Sangat bersyukur bisa bergabung. Wadah yang tepat untuk berbagi keilmuan dan memperluas jaringan antar praktisi di Nusantara."
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Nyi Roro S.</h4>
+                                <p class="text-pupus-400 text-xs">Pengobatan Tradisional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testi 3 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Melalui ISI, padepokan kami mendapat payung hukum yang kuat sehingga tenang melayani masyarakat. Persaudaraannya erat!"
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Gus Ilham</h4>
+                                <p class="text-pupus-400 text-xs">Pimpinan Padepokan</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testi 4 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Organisasi spiritual paling terstruktur dan profesional yang pernah saya ikuti. Visi misinya nyata mendukung kemajuan anggota."
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Bunda Ayu</h4>
+                                <p class="text-pupus-400 text-xs">Ahli Supranatural</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testi 5 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Sertifikasi dan pelatihan di ISI membantu saya meningkatkan kualitas layanan kepada klien. Terima kasih ISI atas dukungannya."
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Romo Tirto</h4>
+                                <p class="text-pupus-400 text-xs">Terapis Energi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testi 6 -->
+                    <div class="glass-card p-8 rounded-3xl relative hover-pupus-border group flex flex-col" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fa-solid fa-quote-right text-4xl text-pupus-500/20 absolute top-6 right-6 group-hover:text-pupus-500/40 transition-colors"></i>
+                        <p class="text-gray-300 italic mb-8 relative-z leading-relaxed text-sm md:text-base flex-grow">
+                            "Di sini saya tidak hanya mendapat ilmu baru, tapi juga keluarga dari berbagai macam tradisi yang saling menghargai. Luar biasa!"
+                        </p>
+                        <div class="flex items-center gap-4 mt-auto">
+                            <div class="w-12 h-12 rounded-full border-2 border-pupus-500/50 p-[2px]">
+                                <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">Ki Mahesa</h4>
+                                <p class="text-pupus-400 text-xs">Pakar Kebatinan</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1103,6 +1283,19 @@
             initParticles();
             animateParticles();
         };
+
+        // 6. Service Worker Registration for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
