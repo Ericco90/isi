@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Foto Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>Eksplorasi Galeri</h1>
+            <p>Koleksi momen terbaik dalam satu tempat.</p>
+        </div>
+        <!-- Ikon kunci kecil untuk masuk ke CMS -->
+        <div id="cms-trigger" title="Masuk ke Dashboard CMS">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Main Gallery Area -->
+    <main>
+        <div id="loader" class="loader">
+            <div class="spinner"></div>
+            <p>Memuat galeri...</p>
+        </div>
+        <div id="gallery-grid" class="gallery-grid" style="display: none;">
+            <!-- Foto-foto akan dimuat di sini oleh Javascript -->
+        </div>
+        <div id="empty-state" class="empty-state" style="display: none;">
+            <p>Belum ada foto di galeri. Gunakan ikon kunci untuk mengunggah.</p>
+        </div>
+    </main>
+
+    <!-- CMS Dashboard Modal (Hidden by default) -->
+    <div id="cms-modal" class="modal">
+        <div class="modal-content glass-effect">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2>Dashboard CMS</h2>
+            <p class="subtitle">Unggah foto baru ke galeri Anda</p>
+            
+            <form id="upload-form">
+                <div class="input-group">
+                    <label for="photo">Pilih Foto</label>
+                    <input type="file" id="photo" accept="image/*" required>
+                    <div class="preview-area" id="preview-area">
+                        <img id="image-preview" src="" alt="Preview" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="title">Judul Foto</label>
+                    <input type="text" id="title" placeholder="Contoh: Pemandangan Gunung" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="description">Deskripsi</label>
+                    <textarea id="description" rows="3" placeholder="Ceritakan sedikit tentang foto ini..."></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" class="btn-primary">
+                    <span class="btn-text">Unggah Foto</span>
+                    <div class="btn-spinner" style="display: none;"></div>
+                </button>
+            </form>
+            <div id="upload-message" class="message"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

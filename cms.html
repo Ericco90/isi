@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Dashboard - Yayasan ISI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pupus: { 400: '#BEF264', 500: '#ADFF2F', 600: '#84CC00' },
+                        dark: { 900: '#050505', 800: '#0D0D0D', 700: '#141414' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; }
+        .glass-panel { background: rgba(13, 13, 13, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(173, 255, 47, 0.15); }
+        .input-dark { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; }
+        .input-dark:focus { outline: none; border-color: #ADFF2F; }
+        
+        /* Scrollbar mini */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(173,255,47,0.2); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(173,255,47,0.5); }
+    </style>
+</head>
+<body class="antialiased h-screen flex overflow-hidden">
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="absolute inset-0 z-50 flex items-center justify-center bg-dark-900 bg-[url('image/hero1.webp')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="glass-panel p-8 rounded-2xl w-full max-w-md relative z-10 mx-4 shadow-[0_0_40px_rgba(173,255,47,0.1)]">
+            <div class="text-center mb-8">
+                <img src="image/logoisi.jpg" class="w-20 mx-auto mb-4 drop-shadow-lg">
+                <h2 class="text-2xl font-bold text-pupus-400">Admin Login</h2>
+                <p class="text-gray-400 text-sm">Sistem Manajemen Konten Galeri</p>
+            </div>
+            <form id="login-form">
+                <div class="mb-6">
+                    <label class="block text-sm text-gray-300 mb-2">Kata Sandi</label>
+                    <div class="relative">
+                        <i class="fas fa-lock absolute left-3 top-3.5 text-gray-500"></i>
+                        <input type="password" id="login-password" required class="input-dark w-full pl-10 pr-4 py-3 rounded-xl" placeholder="••••••••">
+                    </div>
+                </div>
+                <button type="submit" id="login-btn" class="w-full bg-gradient-to-r from-pupus-600 to-pupus-400 text-black font-bold py-3 rounded-xl hover:shadow-[0_0_15px_rgba(173,255,47,0.4)] transition-all flex justify-center items-center">
+                    <span id="login-text">Masuk Dashboard</span>
+                    <i id="login-spin" class="fas fa-spinner fa-spin hidden ml-2"></i>
+                </button>
+                <div id="login-msg" class="mt-4 text-center text-sm hidden p-2 rounded"></div>
+            </form>
+            <div class="mt-6 text-center">
+                <a href="index.html" class="text-sm text-gray-500 hover:text-pupus-400"><i class="fas fa-arrow-left mr-1"></i> Kembali ke Website Utama</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard-screen" class="flex w-full h-full hidden">
+        <!-- Sidebar -->
+        <div class="w-64 glass-panel border-r border-pupus-500/20 hidden md:flex flex-col">
+            <div class="p-6 border-b border-pupus-500/10 flex items-center gap-3">
+                <img src="image/logoisi.jpg" class="w-10">
+                <div>
+                    <h2 class="font-bold text-pupus-400">CMS Panel</h2>
+                    <p class="text-xs text-gray-400">Yayasan ISI</p>
+                </div>
+            </div>
+            <div class="p-4 flex-1">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 bg-pupus-500/10 text-pupus-400 rounded-lg font-medium border border-pupus-500/20">
+                    <i class="fas fa-images"></i> Kelola Galeri
+                </a>
+                <a href="index.html" class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white rounded-lg mt-2 transition-colors">
+                    <i class="fas fa-globe"></i> Lihat Website
+                </a>
+            </div>
+            <div class="p-4 border-t border-pupus-500/10">
+                <button class="logout-action flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-red-400/10 rounded-lg w-full transition-colors">
+                    <i class="fas fa-sign-out-alt"></i> Keluar
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden bg-dark-900/50">
+            <!-- Topbar (Mobile) -->
+            <div class="md:hidden glass-panel p-4 flex justify-between items-center border-b border-pupus-500/20">
+                <h2 class="font-bold text-pupus-400"><i class="fas fa-images mr-2"></i>CMS Galeri</h2>
+                <button class="logout-action text-red-400"><i class="fas fa-sign-out-alt text-xl"></i></button>
+            </div>
+
+            <!-- Scrollable Content -->
+            <div class="flex-1 overflow-y-auto p-4 md:p-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+                    <div>
+                        <h1 class="text-2xl font-bold text-white">Manajemen Galeri</h1>
+                        <p class="text-gray-400 text-sm mt-1">Unggah dan pantau foto kegiatan</p>
+                    </div>
+                    <div class="text-xs bg-yellow-500/20 text-yellow-500 px-3 py-1.5 rounded-full border border-yellow-500/30">
+                        <i class="fas fa-info-circle mr-1"></i> Jangan lupa update SCRIPT_URL di cms.js
+                    </div>
+                </div>
+
+                <div class="grid xl:grid-cols-3 gap-6">
+                    <!-- Form Upload -->
+                    <div class="xl:col-span-1">
+                        <div class="glass-panel p-6 rounded-2xl h-full">
+                            <h3 class="text-lg font-bold text-pupus-400 mb-4 border-b border-gray-700 pb-2"><i class="fas fa-upload mr-2"></i>Unggah Foto Baru</h3>
+                            <form id="upload-form">
+                                <div class="mb-4">
+                                    <label class="block text-sm text-gray-300 mb-1">Pilih Foto</label>
+                                    <input type="file" id="cms-photo" accept="image/*" required class="input-dark w-full p-2 rounded-lg text-sm">
+                                </div>
+                                <img id="cms-preview" src="" class="w-full h-40 object-cover rounded-lg mb-4 hidden border border-gray-700">
+                                <div class="mb-4">
+                                    <label class="block text-sm text-gray-300 mb-1">Judul Foto</label>
+                                    <input type="text" id="cms-title" required class="input-dark w-full p-3 rounded-lg text-sm" placeholder="Contoh: Sarasehan Akbar">
+                                </div>
+                                <div class="mb-6">
+                                    <label class="block text-sm text-gray-300 mb-1">Deskripsi</label>
+                                    <textarea id="cms-desc" rows="3" class="input-dark w-full p-3 rounded-lg text-sm" placeholder="Deskripsi singkat..."></textarea>
+                                </div>
+                                <button type="submit" id="upload-btn" class="w-full bg-pupus-500 hover:bg-pupus-600 text-black font-bold py-3 rounded-xl transition-colors flex justify-center items-center">
+                                    <span id="upload-text">Simpan & Unggah</span>
+                                    <i id="upload-spin" class="fas fa-spinner fa-spin hidden ml-2"></i>
+                                </button>
+                                <div id="upload-msg" class="mt-4 text-center text-sm hidden p-2 rounded-lg"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Gallery List -->
+                    <div class="xl:col-span-2">
+                        <div class="glass-panel p-6 rounded-2xl h-full flex flex-col min-h-[500px]">
+                            <div class="flex justify-between items-center mb-4 border-b border-gray-700 pb-2">
+                                <h3 class="text-lg font-bold text-white">
+                                    <i class="fas fa-list mr-2 text-pupus-400"></i>Daftar Foto Terunggah
+                                </h3>
+                                <button id="refresh-btn" class="text-gray-400 hover:text-pupus-400 text-sm bg-dark-800 px-3 py-1 rounded-lg border border-gray-700 transition-colors">
+                                    <i class="fas fa-sync-alt mr-1"></i> Refresh
+                                </button>
+                            </div>
+                            
+                            <div id="gallery-loader" class="text-center py-20 text-pupus-400">
+                                <i class="fas fa-spinner fa-spin text-3xl mb-3"></i><p class="text-sm">Memuat data dari Google Sheets...</p>
+                            </div>
+
+                            <div class="flex-1 overflow-auto hidden pr-2" id="gallery-container">
+                                <table class="w-full text-left text-sm text-gray-300">
+                                    <thead class="text-xs uppercase bg-dark-800/80 text-gray-400 sticky top-0 backdrop-blur-sm">
+                                        <tr>
+                                            <th class="px-4 py-3 rounded-tl-lg w-24">Foto</th>
+                                            <th class="px-4 py-3">Detail Informasi</th>
+                                            <th class="px-4 py-3 w-32">Tgl Unggah</th>
+                                            <th class="px-4 py-3 rounded-tr-lg w-16">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="gallery-tbody" class="divide-y divide-gray-800/50">
+                                        <!-- Data rows -->
+                                    </tbody>
+                                </table>
+                                <div id="empty-state" class="text-center py-10 text-gray-500 hidden">
+                                    Belum ada data foto yang diunggah.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cms.js"></script>
+</body>
+</html>
